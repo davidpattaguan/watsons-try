@@ -11,7 +11,7 @@ import CustomizedProgressBars from "./CustomizedProgressBars";
 
 const CardItem = ({ campaign }) => {
   return (
-    <Card sx={{ borderRadius: 3 }} elevation={0}>
+    <Card sx={{ borderRadius: 3, padding: "0.3rem" }} elevation={0}>
       <CardContent>
         <Box sx={{ display: "flex" }}>
           <CardMedia

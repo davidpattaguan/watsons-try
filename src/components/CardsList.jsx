@@ -7,7 +7,7 @@ import Container from "@mui/material/Container";
 const CardsList = () => {
   return (
     <Container>
-      <Grid container spacing={3} mt={1}>
+      <Grid container spacing={3} mx={1}>
         {camps.map((campaign) => {
           return (
             <Grid item sm={4} xs={12}>
