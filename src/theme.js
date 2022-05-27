@@ -20,6 +20,17 @@ const theme = createTheme({
       secondary: "rgba(255,255,255,0.54)",
     },
   },
+  typography: {
+    fontFamily: [
+      "inter",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(","),
+  },
 });
 
 export default theme;

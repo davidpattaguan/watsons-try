@@ -1,5 +1,7 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -11,14 +13,14 @@ import CustomizedProgressBars from "./CustomizedProgressBars";
 
 const CardItem = ({ campaign }) => {
   return (
-    <Card sx={{ borderRadius: 3, padding: "0.3rem" }} elevation={0}>
+    <Card sx={{ borderRadius: 3, padding: "0.5rem" }} elevation={0}>
       <CardContent>
-        <Box sx={{ display: "flex" }}>
+        <Box sx={{ display: "flex", mb: "1rem" }}>
           <CardMedia
             component="img"
             image="https://cdn.vox-cdn.com/thumbor/9j-s_MPUfWM4bWdZfPqxBxGkvlw=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22312759/rickroll_4k.jpg"
             alt="green iguana"
-            sx={{ maxWidth: 75, borderRadius: 2 }}
+            sx={{ maxWidth: 80, borderRadius: 2 }}
           />
           <Box
             sx={{
@@ -30,55 +32,61 @@ const CardItem = ({ campaign }) => {
           >
             <Box>
               <Box>
+                <Typography variant="h5" sx={{ fontWeight: "bold" }}>
+                  {campaign.campName}
+                </Typography>
+              </Box>
+
+              <Box>
+                <Typography variant="caption" display="block" gutterBottom>
+                  Campaign ID: {campaign.campId}
+                </Typography>
+              </Box>
+
+              <Box>
                 <Box>
                   <Box
                     component="div"
                     sx={{
                       display: "inline",
-                      border: "1.5px solid gray",
+                      border: "1.2px solid gray",
                       borderRadius: 1,
                       p: "2px",
                       fontSize: "0.65rem",
                     }}
                   >
-                    WATSONS
+                    {campaign.type}
                   </Box>
                 </Box>
               </Box>
-              <Box>
-                <Typography variant="caption" display="block" gutterBottom>
-                  caption text
-                </Typography>
-              </Box>
-              <Box>Campaign Name</Box>
             </Box>
-            <Box>Live</Box>
           </Box>
         </Box>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            pt: 1,
-          }}
-        >
-          <Box sx={{ border: "1px solid black", p: 1, borderRadius: 2 }}>
-            <Typography>End Date</Typography>
-            <Typography>June 12, 2022</Typography>
-          </Box>
-          <Box sx={{ border: "1px solid black", p: 1, borderRadius: 2 }}>
-            <Typography>Budget</Typography>
-            <Typography>P 12,000</Typography>
-          </Box>
+        <Box>
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <Paper elevation={1} sx={{ p: 1, borderRadius: 2 }}>
+                <Typography sx={{ fontWeight: "200" }}>End Date</Typography>
+                <Typography sx={{ fontWeight: "600" }}>
+                  June 12, 2022
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={6}>
+              <Paper elevation={1} sx={{ p: 1, borderRadius: 2 }}>
+                <Typography sx={{ fontWeight: "200" }}>Budget</Typography>
+                <Typography sx={{ fontWeight: "600" }}>P 120,000</Typography>
+              </Paper>
+            </Grid>
+          </Grid>
         </Box>
-        <Box mt={2}>
+        <Box mt={3}>
           <CustomizedProgressBars />
           <Box sx={{ display: "flex", flexDirection: "row-reverse" }}>
-            <Typography>Campaign Target</Typography>
+            <Typography variant="caption">Campaign Target</Typography>
           </Box>
         </Box>
-        <Box sx={{ display: "flex" }}>
+        <Box mt={3} sx={{ display: "flex", justifyContent: "space-between" }}>
           <AvatarGroup max={4}>
             <Avatar
               alt="Remy Sharp"
@@ -101,6 +109,14 @@ const CardItem = ({ campaign }) => {
               src="https://images.unsplash.com/photo-1581382575275-97901c2635b7?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687"
             />
           </AvatarGroup>
+          <Button
+            variant="contained"
+            color="secondary"
+            size="small"
+            disableElevation
+          >
+            View Campaign
+          </Button>
         </Box>
       </CardContent>
     </Card>
